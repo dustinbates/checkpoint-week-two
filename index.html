@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css" integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Unicorn</title>
+
+    <style>
+      body.debug .container,
+      body.debug .container-fluid {
+        outline: 2px double blue;
+        outline-offset: -2px;
+      }
+    
+      body.debug .row {
+        outline: 2px dashed red;
+        outline-offset: -2px;
+      }
+    
+      body.debug [class*="col-"] {
+        outline: 2px dotted forestgreen;
+        outline-offset: -3px;
+      }
+    </style>
+
 </head>
-<body>
+<body class=" text-light">
     
     <header>
 
@@ -18,35 +37,57 @@
 
     <main>
         <div class="container-fluid">
-            <div class="row text-center">
+            <div class="row justify-content-between text-center">
+                <div class="col-5 p-3">
+                    <div class="row text-center justify-content-around">
+                        <div class="col-4">
+                            <button class="btn btn-outline-light" onclick="buyRainbow()">Rainbow</button>
+                                <div class="mdi mdi-plus-circle-multiple-outline" id="rainbowPrice">10</div>
+                                <div class="mdi mdi-gesture-tap">+5</div>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-light" onclick="buyMagic()">Magic</button>
+                                <div class="mdi mdi-plus-circle-multiple-outline" id="magicPrice">50</div>
+                                <div class="mdi mdi-timer"><small>+10 per 3s</small></div>
+                        </div>
+                    </div>
+                    <div class="row text-center justify-content-around">
+                        <div class="col-4">
+                            <button class="btn btn-outline-light text-nowrap" onclick="buyDoubleRainbow()">Double Rainbow</button>
+                                <div class="mdi mdi-plus-circle-multiple-outline" id="doubleRainbowPrice">100</div>
+                                <div class="mdi mdi-gesture-tap">+10</div>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-light" onclick="buyFriendship()">Friendship</button>
+                                <div class="mdi mdi-plus-circle-multiple-outline" id="friendshipPrice">500</div>
+                                <div class="mdi mdi-timer"><small>+100 per 3s</small></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-3">
+                    <p>Rainbows: <span id="totalRainbows">0</span></p>
+                    <p>Double Rainbows: <span id="totalDoubleRainbows">0</span></p>
+                </div>
+                <div class="col-3">
+                    <p>Magic: <span id="totalMagic">0</span></p>
+                    <p>Friendship: <span id="totalFriendship">0</span></p>
+                </div>
+            </div>
+            <div class="row text-center m-5">
                 <div class="col-4">
                     <h3>total per click</h3>
                     <p id="totalPerClick">1</p>
                 </div>
                 <div class="col-4">
-                    <h1>Unicorn</h1>
-                    <p class="mdi mdi-unicorn fs-1" onclick="increaseJoy()"></p>
+                    <div onclick="increaseJoy()">
+                        <img src="assets/unicorn.gif" class="unicorn" alt="">
+                    </div>
                     <p>Total Joy: <span id="joy">0</span></p>
                 </div>
                 <div class="col-4">
                     <h3>total auto clicks</h3>
                     <p id="totalAutoClick">0</p>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-6">
-                    <button class="btn btn-primary" onclick="buyRainbow()">Rainbow</button>
-                    <p>Rainbows: <span id="totalRainbows">0</span></p>
-
-                    <button class="btn btn-primary" onclick="buyDoubleRainbow()">Double Rainbow</button>
-                    <p>Double Rainbows: <span id="totalDoubleRainbows">0</span></p>
-                </div>
-                <div class="col-6">
-                    <button class="btn btn-success" onclick="buyMagic()">Magic</button>
-                    <p>Magic: <span id="totalMagic">0</span></p>
-                    
-                    <button class="btn btn-success" onclick="buyFriendship()">Friendship</button>
-                    <p>Friendship: <span id="totalFriendship">0</span></p>
                 </div>
             </div>
         </div>

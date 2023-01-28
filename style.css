@@ -1,0 +1,22 @@
+body{
+    background-image: url(assets/meadow.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    min-height: 10vh;
+}
+
+main{
+    min-height: 80vh;
+}
+
+footer{
+    min-height: 10vh;
+}
+
+.unicorn{
+    max-height: 200px;
+    max-width: 200px;
+}

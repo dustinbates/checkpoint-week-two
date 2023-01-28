@@ -35,6 +35,10 @@ let rainbowTotal = 0
 let magicTotal = 0
 let doubleRainbowTotal = 0
 let friendshipTotal = 0
+let rainbowPrice = 0
+let doubleRainbowPrice = 0
+let magicPrice = 0
+let friendshipPrice = 0
 
 // SECTION functions for the game
 
@@ -66,22 +70,30 @@ function updateJoy(){
 
 function updateRainbows(){
     let rainbow = document.getElementById('totalRainbows')
+    let price = document.getElementById('rainbowPrice')
     rainbow.innerText = rainbowTotal
+    price.innerText = rainbowPrice
 }
 
 function updateDoubleRainbows(){
     let rainbow = document.getElementById('totalDoubleRainbows')
+    let price = document.getElementById('doubleRainbowPrice')
     rainbow.innerText = doubleRainbowTotal
+    price.innerText = doubleRainbowPrice
 }
 
 function updateMagic(){
     let magic = document.getElementById('totalMagic')
+    let price = document.getElementById('magicPrice')
     magic.innerText = magicTotal
+    price.innerText = magicPrice
 }
 
 function updateFriendship(){
     let friendship = document.getElementById('totalFriendship')
+    let price = document.getElementById('friendshipPrice')
     friendship.innerText = friendshipTotal
+    price.innerText = friendshipPrice
 }
 
 function updatePerClick(){
@@ -104,6 +116,21 @@ function updateAutoClick(){
     totalAutoClick.innerText = autoClick
 }
 
+// function updatePrice(){
+//     let newPrice = 0
+//     let increase = document.getElementById('price')
+//     clickUpgrades.forEach(upgrade => {
+//         let price = upgrade.price
+//         newPrice += price
+//     })
+//     increase.innerText = newPrice
+// }
+
+// function updateAutoPrice(){
+//     let price = document.getElementById('price')
+
+// }
+
 // NOTE purchases an upgrade
 function buyRainbow(){
     let rainbow = clickUpgrades.find(i => i.name == 'Rainbows')
@@ -111,11 +138,13 @@ function buyRainbow(){
         console.log("You got it")
         rainbowTotal++
         rainbow.quantity++
+        joyTotal -= rainbow.price
         rainbow.price += 10
-        joyTotal -= rainbow.price - 10
+        rainbowPrice = rainbow.price
         updateRainbows()
         updateJoy()
         updatePerClick()
+        updatePrice()
     } else {
         window.alert("You need more Joy!")
     }
@@ -129,6 +158,7 @@ function buyDoubleRainbow(){
         rainbow.quantity++
         joyTotal -= rainbow.price
         rainbow.price += 100
+        doubleRainbowPrice = rainbow.price
         updateDoubleRainbows()
         updateJoy()
         updatePerClick()
@@ -143,8 +173,9 @@ function buyMagic(){
         console.log("You got it");
         magicTotal++
         magic.quantity++
-        magic.price +=50
-        joyTotal -= magic.price - 50
+        joyTotal -= magic.price
+        magic.price += 50
+        magicPrice = magic.price
         updateJoy()
         updateMagic()
         updateAutoClick()
@@ -159,8 +190,9 @@ function buyFriendship(){
         console.log("You got it");
         friendshipTotal++
         friendship.quantity++
+        joyTotal -= friendship.price
         friendship.price += 500
-        joyTotal -= friendship.price - 500
+        friendshipPrice = friendship.price
         updateJoy()
         updateFriendship()
         updateAutoClick()
