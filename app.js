@@ -116,21 +116,6 @@ function updateAutoClick(){
     totalAutoClick.innerText = autoClick
 }
 
-// function updatePrice(){
-//     let newPrice = 0
-//     let increase = document.getElementById('price')
-//     clickUpgrades.forEach(upgrade => {
-//         let price = upgrade.price
-//         newPrice += price
-//     })
-//     increase.innerText = newPrice
-// }
-
-// function updateAutoPrice(){
-//     let price = document.getElementById('price')
-
-// }
-
 // NOTE purchases an upgrade
 function buyRainbow(){
     let rainbow = clickUpgrades.find(i => i.name == 'Rainbows')

@@ -1,9 +1,14 @@
+*{
+    font-family: 'Dancing Script', cursive;
+}
+
 body{
     background-image: url(assets/meadow.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
+
 header{
     min-height: 10vh;
 }
@@ -17,6 +22,50 @@ footer{
 }
 
 .unicorn{
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.hotPink{
+    color: hotpink;
+}
+
+.red{
+    color: rgb(255, 45, 45);
+}
+
+.orange{
+    color: orange
+}
+
+.yellow{
+    color: yellow;
+}
+
+.green{
+    color: greenyellow;
+}
+
+.blue{
+    color: rgb(34, 34, 255);
+}
+
+.purple{
+    color: rgb(218, 3, 218);
+}
+
+.joy{
+    color: rgb(255, 151, 169)
+}
+
+.total{
+    color: rgb(166, 0, 166)
+}
+
+.btn-warning{
+    color: white !important;
+}
+
+.shadow{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.513) !important;
 }
